@@ -8,7 +8,7 @@ main = do
   g <- getEnv "HOME"
   q <- readFile (g ++ "/.local/lib/Q.txt")
   a <- readFile (g ++ "/.local/lib/A.txt")
-  let (que, ans) = mapTuple (splitOn "\n") (q, a)
+  let (que, ans) = mapTuple (splitOn ";\n") (q, a)
   let (qPerf, aPerf) = mapTuple (filter (/="")) (que, ans)
   iterateList (qPerf, aPerf)
 
